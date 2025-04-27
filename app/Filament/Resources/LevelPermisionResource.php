@@ -41,8 +41,7 @@ class LevelPermisionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('lihat')
-                    ->boolean(),
+                Tables\Columns\ToggleColumn::make('lihat'),
                 Tables\Columns\IconColumn::make('tambah')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('edit')
