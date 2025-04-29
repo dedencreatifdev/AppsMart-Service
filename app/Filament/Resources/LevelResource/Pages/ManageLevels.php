@@ -39,16 +39,37 @@ class ManageLevels extends ManageRecords
                     // dd(collect(glob($path))->map(fn ($file) => basename($file, '.php'))->toArray()) ;
                     $nama_model = collect(glob($path))->map(fn($file) => basename($file, '.php'))->toArray();
 
+                    $prm = [
+                        'view',
+                        'view_any',
+                        'create',
+                        'update',
+                        'restore',
+                        'restore_any',
+                        'replicate',
+                        'reorder',
+                        'delete',
+                        'delete_any',
+                        'force_delete',
+                        'force_delete_any',
+                        'lock'
+                    ];
+
+                    // dd($nama_model);
+
                     foreach ($nama_model as $model) {
                         // if ($model != 'Level' && $model != 'LevelPermision') {
+                        foreach ($prm as $ppp) {
+                            # code...
                             LevelPermision::factory()->create([
                                 'level_id' => $levelData->id,
-                                'nama' => $model,
+                                'nama' => $model . '-' . $ppp,
                                 'lihat' => 1,
                                 // 'tambah' => 0,
                                 // 'edit' => 0,
                                 // 'hapus' => 0,
                             ]);
+                        }
                         // }
                     }
                     // LevelPermision::factory()->create([
