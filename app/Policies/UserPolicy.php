@@ -50,7 +50,7 @@ class UserPolicy
     public function delete(User $user, User $model): bool
     {
         //
-        return  true;
+        return  false;
     }
 
     /**
