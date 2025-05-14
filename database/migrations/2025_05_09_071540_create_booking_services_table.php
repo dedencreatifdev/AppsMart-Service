@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('booking_services', function (Blueprint $table) {
             // $table->id();
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
+            $table->string('customer_id', 100);
+            $table->string('sa_id', 100);
             $table->timestamps();
         });
-        Schema::create('team_user', function (Blueprint $table) {
+        Schema::create('booking_service_team', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('team_id')->constrained('teams')->cascadeOnDelete();
-            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignUuid('booking_service_id')->constrained('booking_services')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -30,7 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('teams');
-        Schema::dropIfExists('team_user');
+        Schema::dropIfExists('booking_services');
     }
 };

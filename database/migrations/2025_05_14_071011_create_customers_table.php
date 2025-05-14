@@ -11,16 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teams', function (Blueprint $table) {
-            // $table->id();
+        Schema::create('customers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
+
+            $table->string('nama', 100);
+            $table->string('nama_pembawa', 100);
+            $table->text('alamat');
+            $table->string('no_polisi',50);
+            $table->string('kendaraan_id',100);
+            $table->string('no_telp', 100);
+            $table->string('km_ahir', 100);
+
             $table->timestamps();
         });
-        Schema::create('team_user', function (Blueprint $table) {
+        Schema::create('customer_team', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('team_id')->constrained('teams')->cascadeOnDelete();
-            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignUuid('customer_id')->constrained('customers')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -30,7 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('teams');
-        Schema::dropIfExists('team_user');
+        Schema::dropIfExists('customers');
     }
 };
