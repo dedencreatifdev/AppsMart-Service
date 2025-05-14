@@ -18,6 +18,8 @@ class BookingServiceResource extends Resource
     protected static ?string $model = BookingService::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Service';
+    protected static ?string $navigationLabel = 'Booking';
 
     public static function form(Form $form): Form
     {
@@ -36,9 +38,6 @@ class BookingServiceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('customer_id')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sa_id')

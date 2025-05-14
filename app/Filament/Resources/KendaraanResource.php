@@ -18,6 +18,7 @@ class KendaraanResource extends Resource
     protected static ?string $model = Kendaraan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Master Data';
 
     public static function form(Form $form): Form
     {
@@ -105,9 +106,6 @@ class KendaraanResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('no_polisi')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('kdnsb')
