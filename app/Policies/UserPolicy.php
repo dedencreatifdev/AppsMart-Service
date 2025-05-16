@@ -45,7 +45,12 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
+<<<<<<< HEAD
         return false;
+=======
+        //
+        return  false;
+>>>>>>> ed73ab04deaaee9654e2285f60dc677fb66215b1
     }
 
     /**

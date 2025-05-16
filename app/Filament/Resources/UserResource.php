@@ -19,6 +19,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Setting';
 
     public static function form(Form $form): Form
     {
@@ -36,8 +37,6 @@ class UserResource extends Resource
                     ->password()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('level_id')
-                    ->relationship('level', 'nama'),
             ]);
     }
 
@@ -49,11 +48,6 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('level.nama')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('level.levelPermision.nama')
-                    // ->default(Auth::user()->level->levelPermision->tambah)
-                    ->sortable(),
             ])
             ->filters([
                 //
