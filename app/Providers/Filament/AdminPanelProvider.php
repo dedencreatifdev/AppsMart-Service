@@ -66,9 +66,10 @@ class AdminPanelProvider extends PanelProvider
             ->maxContentWidth('full')
 
             ->tenant(Team::class)
-            ->tenantRegistration(RegisterTeam::class)
+            // ->tenantRegistration(RegisterTeam::class)
             ->tenantProfile(EditTeamProfile::class)
 
+            // ->theme(asset('css/filament/admin/theme.css'))
 
         ;
     }

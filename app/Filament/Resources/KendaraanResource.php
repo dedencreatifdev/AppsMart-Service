@@ -99,7 +99,8 @@ class KendaraanResource extends Resource
                 Forms\Components\TextInput::make('ft_jnskend')
                     ->required()
                     ->maxLength(100),
-            ]);
+            ])
+            ->columns(4);
     }
 
     public static function table(Table $table): Table

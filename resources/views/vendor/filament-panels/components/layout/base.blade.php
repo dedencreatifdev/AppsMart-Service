@@ -65,6 +65,8 @@
                 --collapsed-sidebar-width: {{ filament()->getCollapsedSidebarWidth() }};
                 --default-theme-mode: {{ filament()->getDefaultThemeMode()->value }};
             }
+
+            
         </style>
 
         @stack('styles')

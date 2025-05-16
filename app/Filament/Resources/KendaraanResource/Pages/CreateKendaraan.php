@@ -9,4 +9,5 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateKendaraan extends CreateRecord
 {
     protected static string $resource = KendaraanResource::class;
+    protected static bool $canCreateAnother = false;
 }

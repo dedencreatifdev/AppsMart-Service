@@ -31,7 +31,8 @@ class BookingServiceResource extends Resource
                 Forms\Components\TextInput::make('sa_id')
                     ->required()
                     ->maxLength(100),
-            ]);
+            ])
+            ->columns(4);
     }
 
     public static function table(Table $table): Table
