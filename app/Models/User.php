@@ -66,6 +66,6 @@ class User extends Authenticatable
      */
     public function levels(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'level_id', 'id')->white('levelPermision');
+        return $this->belongsTo(Level::class, 'level_id', 'id');
     }
 }
